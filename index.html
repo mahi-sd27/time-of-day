@@ -63,6 +63,7 @@
 	 <header><h3>A JavaScript example by Mahder Wehabe</h3>
 	<h2 id="greeting">Greeting goes here</h2>
 	</header>
+	<h3 id="time"> Time goes here </h3>
 	<p> This web page uses JavaScript to determine the current hour,
 		 and presents a different image, custom message, 
 		 and color based on each of the following times of day.</p>
@@ -94,21 +95,34 @@
 		let myColor = '';
 		let myPic = '';
      //REMOVE THE LINE BELOW - FOR TESTING ONLY
-		myHours = 13;
+		//myHours = 2;
 
-		if(myHours<12){
+		if(myHours >= 5 && myHours < 12){
 		//alert('Good Morning');
 		myText = "Good Morning!";
 		myColor = "Orange";
-		myPic = "images/moring.jpg";
+		myPic = "images/morning.jpg";
 
-		}else{
+
+		}else if (myHours >= 12 && myHours < 18) {
 			myText = "Good Afternoon";
 			myColor = "Red";
-			myPic = "images/afternoon.jpg"
-		}
-		console.log(myText);	
+			myPic = "images/afternoon.jpg";
 
+		}else if (myHours >= 18 && myHours < 23) {
+			myText = "Good Evening";
+			myColor = "Blue";
+			myPic = "images/evening.jpg";
+
+		}else{
+			myText = "Good Night";
+			myColor = "Purple";
+			myPic = "images/night.jpg";
+		}
+		
+		console.log(myHours);
+		let d = new Date();
+		document.getElementById("time").innerHTML = d;
 		//load greeting to page
 		document.getElementById('greeting').innerHTML= myText;
 		document.getElementById('greeting').style.color = myColor;
@@ -125,6 +139,34 @@
 
         document.getElementById('copyright').innerHTML= myCopyright; 
       //console.log(myCopyright);
+	/** 
+	if(myHours>=5 && myHours<12){
+	myText = 'Good Morning';
+	myColor = 'Orange';
+	myPic = 'images/moring.jpg'; 
+
+	}else{
+	myText = 'Good Afternoon';
+	myColor = 'Red';
+	mypic = 'images/afternoon.jpg';
+	}
+	if(myHours==18 && myHours<23){
+	myText = 'Good Evening';
+	myColor = 'Blue';
+	myPic = 'images/evening.jpg';
+	}
+	else{
+	myText = 'Good Night';
+	myColor = 'Black';
+	myPic = 'images/night.jpg';
+	}
+	Console.log("myText");
+	document.getElementById("greeting").innerHTML = myText;
+	document.getElementById("greeting").style.color = myColor;
+	document.querySelector("html").style.mybackgroundColor = myColor;
+	document.getElementById("Pic").src = myPic;
+	**/
 	</script>
+	
 </body>
 </html>
